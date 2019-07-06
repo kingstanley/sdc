@@ -1,0 +1,33 @@
+<div class="row" style="text-align: center">
+    <div class="card col s12 m6" style="text-align: center; margin:4%;">
+        <div class="card-heading">
+            <h4>Login to continue</h4>
+        </div>
+        <div class="card-content ">
+            <form action="/account/signin" method="post">
+                <div class="row">
+                    <div class="input-field">
+                        <input type="text" name="username" required>
+                        <label for="email">Username</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field">
+                        <input type="password" name="password" id="password" required>
+                        <label for="email">Password</label>
+                    </div>
+                    <div class="card-action">
+                        <span>
+                            <button type="submit" class="btn"
+                                onclick="Materialize.toast('You are now logged in', 2000)"><i class="fa fa-sign-in">
+                                    Sign in</i></button>
+                                    <br/>
+                                  New?  <a class="link" href="/account/create">Sign up</a>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

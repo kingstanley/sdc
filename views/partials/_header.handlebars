@@ -1,0 +1,81 @@
+<nav class="yellow darken-4">
+    <div class="container">
+        <div class="nav-wrapper ">
+            <a href="/" class="brand-logo center">
+                {{!-- <img src="/img/beam.png" class="responsive-img" width="150px;"> --}}
+                SDC
+            </a>
+
+            <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class=" fa fa-bars"></i></a>
+            <!-- Right Nav -->
+            <ul class="right hide-on-small-only">
+                {{#if user}}
+                <li>
+                    <div>
+                        <a href="/dashboard/">
+                            Welcme, <img src="{{user.image}}" height="30px" /> <span class="title">{{user.firstName}}</span>
+                        </a>
+                    </div>
+
+                </li>
+                <li><a href="/account/signout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                {{else}}
+                {{!-- <a><a href="/"><i class="fa fa-book"></i> Post</a></a> --}}
+                <li><a href="/s/politics"> Tutorials</a></li>
+                <li><a href="/s/social"> Blog Post</a></li>
+                <li><a href="/popular"> IT News</a></li>
+                <li><a href="/account/signin" onclick="Materialize.toast('You are now Logged out',2000)"><i class="fa fa-sign-in waves-effect waves-red"></i>
+                        Sign in</a></li>
+
+                {{/if}}
+
+
+            </ul>
+
+            <!-- SIDE MENU -->
+            <ul id="slide-out" class="sidenav">
+                <li>
+                    <div class="user-view">
+                        <div class="background">
+                            <img src="/img/background.jpg">
+                        </div>
+                        <a href="#user"><img class="circle" src="{{user.image}}"></a>
+                        <a href="#name"><span class="white-text name">{{user.firstName}} {{user.lastName}}</span></a>
+                        <a href="#email"><span class="white-text email">{{user.email}}</span></a>
+                    </div>
+                </li>
+                {{#if user}}
+                <li>
+                    <a href="/"><i class="fa fa-book"></i> Recent </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="/dashboard"><i class="fa fa-cog"></i>Dashboard</a>
+                </li>
+
+                <li>
+                    <a href="/account/signout" onclick="Materialize.toast('You are now Logged out', 2000)"><i class="fa fa-sign-out left"></i>Logout</a>
+                </li>
+                <li class="divider"></li>
+                {{else}}
+                
+                <li>
+                    <a class="btn red darken-1" href="/account/signin"><i class="fa fa-sign-in left top"></i>Sign in</a>
+                </li>
+                <li>
+                    <a class="btn darken-1" href="/account/create"><i class="fa fa-user left top"></i>Register</a>
+                </li>
+                {{!-- <a><a href="/"><i class="fa fa-book"></i> Post</a></a> --}}
+                <li><a href="/s/politics"> Tutorials</a></li>
+                <li><a href="/s/social"> Blog Post</a></li>
+                <li><a href="/popular"> IT News</a></li>
+                {{/if}}
+
+
+            </ul>
+
+
+        </div>
+
+    </div>
+</nav>

@@ -1,0 +1,65 @@
+<div class="row">
+    <a href="/" class="brand-logo center">
+        {{!-- <img src="/img/beam.png" class="responsive-img" width="100%;"> --}}
+    </a>
+</div>
+{{!-- <div class="row">
+    <div class="carousel ">
+        {{#each posts}}
+
+        <a class="carousel-item " href="/view/{{id}}">
+            <p> {{title}}</p>
+            <img src="{{image}}" class="responsive-img">
+        </a>
+
+
+        {{/each}}
+    </div>
+</div> --}}
+{{!-- <h1>Trending News</h1> --}}
+<div class="row">
+
+    {{#each posts}}
+    <div class="col s12 l4 card hoverable post-card">
+        <div class="card-image">
+            {{#if user}} {{{editIcon user.id ../user.id id}}} {{/if}}
+        </div>
+        <div class="card-content">
+            <div class="">
+                <a href="/view/{{id}}" class="hoverable"> {{{formatTitle title 25}}} </a>
+
+                <br>
+                <div class="center meta">
+                    {{!-- Posted On: --}}
+                    <a class="hoverable" href="/posts/date/{{date}}"> {{formatDate date "MMMM Do YYYY"}}</a>,
+                    <a class="hoverable" href="/posts/author/{{user.id}}">{{user.firstName}} {{user.lastName}}</a> |
+
+                    Tags: {{#if hashTags}}
+
+
+                    {{#each hashTags}}
+                    <a class="hoverable" href="/posts/tag/{{Tag}}">{{Tag}}</a> |
+                    {{/each}}
+                    {{/if}}
+
+                    <a><i class="fa fa-thumbs-up"></i>&nbsp;{{likes.length}}</a> | <i class="fa fa-eye"></i>
+                    {{views}}</span>
+                </div>
+                <br />
+            </div>
+            <div class="">
+                <a href="/view/{{id}}"> <img src="{{image}}" class="responsive-img circle thumbnail hoverable"
+                        width="100px"></a>
+
+                <p class="justify-text"> {{{stripTags (truncate body 290 ) }}}
+                    <a href="view/{{id}}" class="">
+                        Read More <i class="fa fa-arrow-right"></i></a> </p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+    <div class="col s12 l3">
+        This right panel will content any kind of info
+    </div>
+</div>

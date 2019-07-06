@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col s12 m9">
+
+        <small>
+            {{#if user}} {{{editIcon post.user.id user.id post.id false}}} {{/if}}
+        </small>
+
+
+        <div class="card">
+
+            <div class="card-content justify-text">
+                <span class="post-title">{{post.title}}</span>
+                <span class="card-title">{{formatDate post.date 'MMMM Do YYYY'}} |Tags:
+                    {{#each post.hashTags }}
+
+                    <a class="hoverable" href="/posts/tag/{{Tag}}">{{Tag}}</a> |
+                    {{/each}}
+                    <a href="/like/{{post.id}}" class="hoverable"> <i class="fa fa-thumbs-o-up"></i>
+                        {{post.likes.length}}</a> | <i class="fa fa-eye"></i> {{post.views}}</span>
+                <img controls src="{{post.image}}" class="responsive-img image hoverable"></img>
+                <br /> 
+                <div class="justify-text">
+                    {{{post.body}}}
+                </div>
+
+            </div>
+        </div>
+
+        {{#if post.allowComments}}
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Comments</span>
+                {{#if user}}
+                <form action="/coment/{{post.id}}" method="post">
+                    <div class="input-field">
+                        <textarea name="commentBody" class="materialize-textarea" cols="30" rows="10"></textarea>
+                        <label for="commentBody">Add Comment</label>
+                    </div>
+                    <input type="submit" value="Submit" class="btn">
+                </form>
+                {{else}}
+
+                <p>Please Login to leave a comment<a href="/auth/google"> |Google Account|</a>
+                    <a href="/account/signin">Sign in</a></p>
+                {{/if}}
+            </div>
+        </div>
+
+        {{#each post.comments}}
+        <div class="card">
+            <div class="card-content">
+                <h5 class="justify-text">{{commentBody}}</h5>
+                <div class="chip">
+                    <img src="{{commentUser.image}}" />
+                    <a href="/posts/author/{{commentUser.id}}">{{commentUser.firstName}} {{commentUser.lastName}}
+                    </a>
+                    <br />
+                    <small>Posted: {{formatDate commentDate "MMMM Do YYYY"}}</small>
+                </div>
+            </div>
+        </div>
+        {{/each}} {{/if}}
+    </div>
+    <div class="col s12 m3">
+        <div class="card center-align">
+            <div class="card-content">
+                <span class="card-title">{{post.user.firstName}} {{post.user.lastName}}</span>
+                <img src="{{post.user.image}}" class="circle responsive-img">
+            </div>
+            <div class="card-action">
+                <a href="/posts/author/{{post.user.id}}">More from {{post.user.firstName}}</a>
+            </div>
+        </div>
+    </div>
+</div>

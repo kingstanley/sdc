@@ -1,0 +1,67 @@
+<div class="container ">
+    <div class="card ">
+        <div class="row ">
+            <h5>Create SDC Account</h5>
+        </div>
+        <form action="/account/create" method="POST" enctype="multipart/form-data" class="center-align col s12 m12 l12">
+
+            <div class="row">
+                <div class="input-field ">
+                    <input type="text" name="firstName" id="firstName" required value="{{firstName}}">
+                    <label for="firstName">FirstName</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field ">
+                    <input type="text" name="lastName" id="lastName" required value="{{lastName}}">
+                    <label for="lastName">LastName</label>
+                </div>
+            </div>
+
+                <div class="row ">
+                    <div class="input-field ">
+                        <input type="email" name="email" id="email" required value="{{email}}">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field ">
+                        <input type="text" name="username" id="username" required value="{{username}}">
+                        <label for="username">username</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field">
+                        <input type="password" name="password" id="password" required value="{{password}}">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <input type="password" name="password2" id="password2" required value="{{password2}}">
+                        <label for="password2">Confirm Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <h5>Profile Picture</h5>
+                        <input type="file" name="image" id="image" value="{{image}}">
+                    </div>
+                </div>
+
+
+                <div class="card-action">
+                    <input type="submit" value="Create Account" class="btn">
+                </div>
+
+        </form>
+    </div>
+</div>
+
+{{!-- <div class="">
+    <h4>Create SDC Account</h4>
+    <form>
+        <div class="input-field">
+            <input placeholder="First Name">
+        </div>
+    </form>
+</div> --}}

@@ -1,0 +1,47 @@
+<footer class="page-footer  yellow darken-4">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">
+                    StanDevCode
+                </h5>
+                <p class="grey-text text-lighten-4">
+                    Crafting Amazing Apps
+                </p>
+            </div>
+            <div class="col l4 offset-12 s12">
+                <h5 class="white-text">
+                    Links
+                </h5>
+                <ul>
+                    <li class="grey-text text-lighten-3">
+                        <a href="/" class="white-text">Recent News</a>
+                    </li>
+                    <li class=" text-lighten-3">
+                        <a href="/popular" class="white-text">Most Read</a>
+                    </li>
+                    <li class=" text-tighten-3">
+                        {{!-- <a href="/about" class="white-text">About</a> --}}
+                    </li>
+                    {{#if user}}
+                    <li class=" text-tighten-3">
+                        <a href="/account/signout" class="white-text">Logout</a>
+                    </li>
+                    {{else}}
+                    <li class=" text-tighten-3">
+                        <a href="/account/signin" class="white-text">Sign In</a>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            &copy 2018, StanDevCode
+            <div class="right">
+
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col s12 m8">
+        <form action="/edit/{{post.id}}?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="input-field">
+                    <input type="text" name="title" id="title" required title="Your post Title" value="{{post.title}}">
+                    <label for="title">Title</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field">
+                    {{!-- <select multiple name="hashtags">
+                        <option value="" selected disabled>Choose your option</option>
+                        <option value="Business">Business</option>
+                        <option value="Relationship">Relationship</option>
+                        <option value="News">News</option>
+                    </select> --}}
+                    <input type="text" name="hashtags" id="hashtags" placeholder="Enter tags seperated by commas(,) eg: Politices, Presidential Election">
+                    <label>Tags</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <h5>Body</h5>
+                    <textarea type="text" name="body" id="body" required title="Your post body">{{post.body}}</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <div class="input-field ">
+                        {{#select post.status}}
+                        <select name="status" class="status" id="status"
+                            <option value="Draft" selected>Draft</option>
+                            <option value="Published">Published</option>
+                            <option value="unpublished">Unpublished</option>
+                            {{/select}} 
+                            </select>
+                        <label for="status">Status</label>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p>
+
+                    <label for="allowComments">
+                        <input type="checkbox" name="allowComments" id="allowComments" class="filled-in" checked>
+                        <span>
+                            Allow Comments
+                        </span>
+                    </label>
+                </p>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <h5>Image</h5>
+                    <input type="file" name="image" id="image" value="{{image}}">
+                </div>
+            </div>
+
+            <div class="row card-action">
+                <input type="submit" value="Save" class="btn">
+            </div>
+        </form>
+    </div>
+{{!-- 
+    <div class="col s12 m4">
+        <div class="card">
+            Author Detail only visible on view page
+        </div>
+        <div class="card">
+            Tags
+        </div>
+        <div class="row">
+            <div class="card">
+                Trending
+            </div>
+
+        </div> --}}
+    </div>
+</div>

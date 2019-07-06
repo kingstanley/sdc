@@ -1,0 +1,52 @@
+<h3>Welcome {{user.firstName}}</h3>
+
+
+{{#if posts}}
+
+<h4>Your Posts: {{count}}</h4>
+<table class="striped">
+    <thead>
+        <tr>
+            <th data-field="title">Title</th>
+            <th data-field="date">Date</th>
+            <th data-field="status">Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each posts}}
+        <tr>
+
+            <td><a href="/view/{{id}}">{{title}}</a></td>
+
+            <td>{{formatDate date 'MMMM Do YYYY'}}</td>
+
+            <td><span class="dash-status">{{status}}</span></td>
+            <td>
+                <a href="/edit/{{id}}" class="btn left-align">
+                    <i class="fa fa-pencil">Edit</i>
+                </a>
+                <form action="/delete/{{id}}?_method=DELETE" id="delete-form" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="btn red">
+                        <i class="fa fa-remove">Delete</i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{#if [pageCount] }}
+<ul class="pagination">
+
+    {{#if [page 1]}}
+    <li class="disabled">
+        <a href="">First</a>
+    </li>
+    {{/if}}
+</ul>
+{{/if}} {{else}}
+
+<p>You have not published any post yet</p>
+{{/if}}

@@ -1,0 +1,31 @@
+<h1 class="currentPosition" style="position: fixed;top:
+10px;left: 10px;width: 100%;height:300px">You have crossed:<span class="progressCounter"></span>px </h1>
+<div class="longDiv" style="height: 2000px;"></div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var options = [
+            {
+                selector: '.longDiv', offset: 500, callback:
+                    function () {
+                        $('.progressCounter').text(500).
+                            css({ "background": "#B00" });
+                    }
+            },
+            {
+                selector: '.longDiv', offset: 1000, callback:
+                    function () {
+                        $('.progressCounter').text(900).
+                            css({ "background": "#0B0" });
+                    }
+            },
+            {
+                selector: '.longDiv', offset: 1400, callback:
+                    function () {
+                        $('.progressCounter').text(1400).
+                            css({ "background": "#00B" });
+                    }
+            }
+        ];
+        Materialize.scrollFire(options);
+    });
+</script>
